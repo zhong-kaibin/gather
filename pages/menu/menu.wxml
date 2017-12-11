@@ -1,0 +1,7 @@
+<!--pages/menu/menu.wxml-->
+<view class='container'>
+<view class='img-wrap'>
+    <image wx:for="{{arrs}}" wx:key="arrs"  src='{{item.image}}' class='img' bindtap="toearlySign" data-url="{{item.data.path}}
+    data-obj="{{item.data}}" data-type="{{item.type}}"></image>
+</view>
+</view>

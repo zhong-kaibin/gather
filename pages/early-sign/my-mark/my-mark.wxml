@@ -1,0 +1,45 @@
+<!--pages/my-mark/my-mark.wxml-->
+<view class='wrap'>
+  <view class='top-wrap'>
+    <view class='mark-wrap clearfix'>
+      <view class='title'>我的战绩</view>
+      <view class="mark-btn">
+        <image class='icon' src='{{palneIcon}}'></image>
+        <button class='mark-btn' open-type="share">晒战绩</button>
+      </view>
+    </view>
+    <view class='money-layout'>
+      <view class='money-item'>
+        <text class='money'>{{recharge}}</text>
+        <text class='money-msg'>累计投入(元)</text>
+      </view>
+      <view class='money-item'>
+        <text class='money'>{{income}}</text>
+        <text class='money-msg'>累计赚取(元)</text>
+      </view>
+      <view class='money-item'>
+        <text class='money'>{{sign_times}}</text>
+        <text class='money-msg'>成功打卡(天)</text>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class='sign-list'>
+    <image mode='aspectFit' src='{{signIcon}}' class='signIcon'></image>
+    <text class='sign-msg'>打卡明细</text>
+  </view>
+  <view wx:for="{{arrs}}" class="list-item  {{item.exec_type==0?'sign-statused':''}}" wx:key="arr">
+    <text class='time'>{{item.date}}<text class='sign-status'>{{item.desc}}</text></text>
+    <text wx:if="{{item.money==-1?false:true}}" class="{{item.exec_type==1?'org-font':''}}">{{item.money}}</text>
+  </view>
+  </view>
+  
+  <!-- <view class='list-item'>
+  <text class='time'>2017-11-18<text class='sign-status'>待打卡</text></text> 
+  <text>+1.00</text>
+</view>
+<view class='list-item'>
+  <text class='time'>2017-11-18<text class='sign-status'>待打卡</text></text> 
+  <text class='org-font' >+1.00</text>
+</view> -->
+</view>

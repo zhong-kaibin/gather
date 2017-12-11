@@ -1,0 +1,10 @@
+<!-- 充值记录 -->
+<view class='record'>
+  <view class='record_list' wx:for="{{list}}">
+      <text class='list_title' >{{item.desc}}</text>
+      <text class='list_zhuang'>{{item.status_desc}}</text>
+      <text class='list_time'>{{item.created}}</text>
+      <text class='list_price'>{{item.recharge_money /100}}</text>
+  </view>
+  
+</view>

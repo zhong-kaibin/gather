@@ -1,0 +1,7 @@
+<!--pages/pay-success/pay-success.wxml-->
+<view class='top-wrap'>
+  <view class='ok-msg'>支付成功 明早记得打卡哦</view>
+  <view class='msg'>打卡时间<text class='time'>明日5:00-8:00</text></view>
+</view>
+<button class='red-btn' bindtap='signOk' wx:if="{{!payStatus}}">好的</button>
+<button class='org-btn' open-type="share" >邀请好友参与挑战</button>

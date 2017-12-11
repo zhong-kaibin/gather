@@ -1,0 +1,31 @@
+<view>
+  <!-- 输入电话号码 -->
+  <view class='import'>
+    <input class='phone_number' id='phone' bindinput='phone_number' type="number" placeholder='请输入手机号' maxlength='11' value=''>{{number}}</input>
+    <text class='operator'>{{operator}}</text>
+  </view>
+  <!-- 选择面值 -->
+  <form report-submit="true" bindsubmit="formId" id='option'>
+    <text class='choose_pri'>选择面值</text>
+    <button data-index="{{index}}" bindtap='tapListEvent' class='choose_btn {{index== moneyIndex ? "chose-p" :""}}' wx:for="{{list}}">{{item.full_price/100 + '元'}}</button>
+
+    <view class='pricett' wx:if="{{!cost}}"></view>
+
+    <view class='price' wx:if="{{cost}}"><text class='shi'>市场价:{{list[moneyIndex].market_price ? list[moneyIndex].market_price/100 + '元' : '0' }}</text> 成交价:{{list[moneyIndex].final_price/100 ? list[moneyIndex].final_price/100 + '元' : '0'}}</view>
+
+    <button wx:if="{{!consolebutton}}" formType="submit" class='pay' bindtap=''>请选择充值面额</button>
+    <button  wx:if="{{consolebutton}}" formType="submit" class='prepaid' bindtap='paying'>立即充值</button>
+
+    <!-- 底部 -->
+    <view class='bottom'>
+      <button formType="submit" class='skip' open-type="contact">在线客服</button>
+      <button formType="submit" bindtap='skips' class='skips'>充值记录</button>
+
+      <!-- <contact-button session-from="weapp" class='skip'>在线客服</contact-button> -->
+    </view>
+  </form>
+
+
+
+
+</view>

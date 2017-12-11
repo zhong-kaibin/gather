@@ -1,0 +1,97 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='top-wrap'>
+    <view class='money-wrap'>
+      <view class='money'>￥{{money}}</view>
+      <view class="mark-btn" bindtap='toMyMark'>
+        <image class='icon' src='{{markIcon}}'></image>
+        <text>我的战绩</text>
+      </view>
+    </view>
+    <view class='content'>
+      <text>
+    {{tip}}早起打卡可随机瓜分总金额（元） \n当前已有<text class='yelow-font'>{{count}}</text>人参与活动
+      </text>
+    </view>
+    <view class='img-wrap' >
+    <view wx:for="{{avatars}}" wx:key="avatars"  class='user-img-wrap'>
+      <image class='user-img' mode='aspectFill'  src='{{item}}'></image>
+    </view>    
+    </view>
+    <view class='yelow-font rule' bindtap='toRule'>打卡规则 ></view>
+  </view>
+  <form bindsubmit="formSubmit" report-submit="true">
+    <button class='red-btn' formType="submit" wx:if="{{is_join==1?false:true}}">支付1元参与打卡</button>
+  </form> 
+   <button class='red-btn' wx:if="{{is_join==1 && remainSeconds>0}}" bindtap='showMsg'>打卡倒计时 {{hours}}小时 {{minutes}}分{{seconds}}秒</button> 
+   <button class='red-btn' bindtap='toSign' wx:if="{{is_join==1 && remainSeconds<=0}}">打卡</button> 
+  <button class='org-btn' open-type="share" >邀请好友参与挑战</button>
+   <view class='tips' wx:if="{{!markShow}}">每日<text class='org-font'>8:05</text>公布当日战况</view> 
+  <view class='today-wrap' wx:if="{{markShow}}">
+    <view class='title'>
+      <image mode='aspectFit' class='img-now' src='{{today}}'></image>
+    </view>
+
+    <view>
+      <view class='status-wrap'>
+        <view class='status-item1'>
+          <text class='sign-num org-font'>{{today_datas.success}}</text>成功</view>
+        <view class='status-item2'>
+          <text class='sign-num green-font'>{{today_datas.failed}}</text>失败</view>
+      </view>
+
+      <view class='star-item'>
+        <view class='star-s-item'>
+          <image mode='scaleToFill' src='{{today_datas.top.first.avatar}}' class='head-img'></image>
+          <view class='star-wrap'>
+            <view class='rank-btn bg-org'>早起之星</view>
+            <view class='star-id'>id{{today_datas.top.first.user_id}}</view>
+            <view class='star-time org-font'>{{today_datas.top.first.sign_datetime}}打卡</view>
+          </view>
+        </view>
+        <view class='star-s-item'>
+          <image mode='scaleToFill' src='{{today_datas.top.luck.avatar}}' class='head-img'></image>
+          <view class='star-wrap'>
+            <view class='rank-btn red-bg'>手气之星</view>
+            <view class='star-id'>id{{today_datas.top.luck.user_id}}</view>
+            <view class='star-time org-font'>{{today_datas.top.luck.money}}元</view>
+          </view>
+        </view>
+        <view class='star-s-item'>
+          <image mode='scaleToFill' src='{{today_datas.top.times.avatar}}' class='head-img'></image>
+          <view class='star-wrap'>
+            <view class='rank-btn green-bg'>毅力之星</view>
+            <view class='star-id'>id{{today_datas.top.times.user_id}}</view>
+            <view class='star-time org-font'>连续{{today_datas.top.times.times}}次</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 打卡失败提示 -->
+   <view class='mask' wx:if="{{failPop && !haveSHOW}}"></view>
+<view class='pop' wx:if="{{failPop && !haveSHOW}}">
+  <view class='pop-img-wrap'>
+    <image class='pop-img' mode='scaleToFill' src='{{popSrc}}'></image>
+  </view>
+  <view class='pop-status'>打卡失败</view>
+  <view class='pop-time'>打卡时间5:00-8:00 </view>
+  <view class='pop-content-wrap'>
+    <text class='pop-content'>起得早的人一共瓜分了<text class='org-font'>{{money}}</text>元\n不要放弃,再挑战一次
+    </text>
+  </view>
+  <view class='moto' bindtap='close'>
+    不甘心,我要早起！
+  </view>
+  <image class='close' src='{{closeSrc}}' bindtap='close'></image>
+</view>   
+<!-- 提示信息 -->
+<view class='popMsg' wx:if="{{popMsgStatus}}">
+    <view class='popMsg-mask'></view>
+    <view class='popMsg-content'>
+        <view class='popMsg-text'>打卡时间还没到哦</view>
+        <view class='popMsg-time'>5:00-8:00</view>    
+    </view>
+</view>

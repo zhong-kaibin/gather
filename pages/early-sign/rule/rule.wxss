@@ -1,0 +1,53 @@
+/* pages/rule/rule.wxss */
+.wrap{
+  padding: 30rpx;
+}
+.icon-img{
+  /* margin-left: 30rpx; */
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 12rpx; 
+}
+.title{
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  font-size: 34rpx;
+  /* color: #333; */
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  
+}
+.line{
+  width: 5rpx;
+  height: 30rpx;
+  background: #ff8e42;
+  margin-right: 10rpx;
+  /* border-left: 3rpx solid  */
+}
+.text{
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #333;
+  margin-bottom: 54rpx;
+}
+.ctitle{
+  font-size: 34rpx;
+  color: #ff8e42;
+  text-decoration: underline;
+  position: static;
+  background: #ffffff;
+  display: inline;
+  border: none;
+  margin: 0;
+  padding-left: 0;
+}
+.ctitle::after{
+  border: none
+}
+.img{
+  width: 100%;
+}
+.mb36{
+  margin-bottom: 36rpx;
+}

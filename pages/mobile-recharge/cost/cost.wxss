@@ -1,0 +1,170 @@
+page {  
+  display: block; 
+  width: 100%;
+  height:100%; 
+  background-color:#f5f5f5;  
+  position: relative;
+}  
+.import{
+  width:100%; 
+  overflow: hidden;
+  height:55px;
+  background:#fff;
+  margin:5px 0;
+
+}
+.phone_number{
+  display:inline-block;
+  width:71%;
+  height:55px;
+  line-height:55px;
+  background:#fff;
+  float:left;
+  font-size:24px;
+  padding:0 0 0 10px;
+  margin:0;
+
+}
+.operator{
+  display:inline-block;
+  width:25%;
+  height:21px;
+  line-height:15px;
+  text-align:center;
+  color:#9b9b9b;
+  float:right;
+  background-origin:border-box;
+  font-size:12px;
+  padding:0;
+  margin:0;
+  word-wrap:break-word;
+  padding-top:21px;
+
+
+}
+/* 选择面值 */
+#option{
+  display: block;
+  width:93%;
+  height:auto;
+  margin:0 auto;
+  margin-top:10px;
+}
+.choose_pri{
+  display: block;
+  font-size: 14px;
+  margin-bottom:16px;
+  color: #9b9b9b;
+}
+button:after{
+  border:0;
+}
+.choose_btn{
+  display:inline-block; 
+  width:30%;
+  line-height:55px;
+  border:1px solid #d6d6d6;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+  background: #fff;
+}
+.choose_btn:nth-of-type(2){
+  margin:0px 15px 0px 14px;
+  margin-bottom: 10px;
+}
+.choose_btn:nth-of-type(5){
+  margin:0px 15px 0px 14px;
+  margin-bottom: 10px;
+}
+.price{
+  /* display: none; */
+   display:block; 
+  width:98%;
+  height:50px;
+  background:#fff;
+  color:#000;
+  margin-bottom:14px;
+  line-height:50px;
+  padding-left:8px;
+  font-size:16px;
+}
+/*test */
+.pricett{
+  width: 100%; height: 1px; background: #f5f5f5;
+}
+.price em{
+  display: inline-block;
+  color: #ccc;
+}
+.shi{
+  display: inline-block;
+  font-size: 16px;
+  color: #ccc;
+  text-decoration:line-through;
+  margin-right:10px;
+}
+.pay{
+   /* display: none;  */
+  /* display: block;  */
+  width: 100%;
+  line-height:47px;
+  font-size:16px;
+  background: #ccc;
+  color: #fff;
+  font-family: "微软雅黑";
+}
+.prepaid{
+  /* display: none; */
+   display: block; 
+  width: 100%;
+  line-height:47px;
+  font-size:16px;
+  color: #fff;
+  background: #ff614c;
+  font-family: "微软雅黑"；
+}
+.bottom{
+  width:90%;
+  line-height:40px;
+  margin:0 auto;
+  text-align:center;
+  position:absolute;
+  bottom:16px;
+  left: 5%;
+
+}
+.skip{
+  display:inline-block;
+  width:97px;
+  height:25px;
+  line-height:25px;
+  font-size:14px;
+  color:#ff614c;
+  border-right:1px solid #ccc;
+  border-radius:0;
+  background:0;
+}
+.skips{
+  display:inline-block;
+  width:97px;
+  height:25px;
+  line-height:25px;
+  font-size:14px;
+  color:#ff614c;
+  border-radius:0;
+  background:0;
+}
+/* 测试 */
+.chose-txt{  
+  border-radius: 6px;  font-size: 26rpx;   height: 40px;  width:  27.5%;  margin: 5px; float: left;padding-top: 5px;  
+}  
+.chose-p{  
+  border:1px solid #ff614c;
+    /* background-image:url(../image/gou.png);  未添加图片链接  */
+  background-size:21% auto;
+  background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAJFBMVEX/YUz/YUz/YUwAAAD/YUz/////sKX/l4n/fGr/8O3/qp//Z1NwYbHeAAAABHRSTlPxrSYAnzdaTwAAAGZJREFUKM9jcEEBjMpoAi5M6AKO6AIO6AIu1BbwRheobEEVcA9dgipQGgbRglCQAhPwgCmACaSWQBQgBMIhCuACbqElIAUwAbASkAKYAFhJOVgBwtrU0DCEXyBKUtA8l4bh20EnAAAbaov8lJQx0wAAAABJRU5ErkJggg==);
+  background-repeat:no-repeat;
+  background-position: right top;
+
+}  

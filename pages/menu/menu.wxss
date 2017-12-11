@@ -1,0 +1,15 @@
+/* pages/menu/menu.wxss */
+.container{
+  border-top: 1rpx solid #FCFCFC
+}
+.img-wrap{
+  width: 690rpx;
+  height: 300rpx;
+  border-radius: 20rpx;
+}
+.img{
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+  margin-top: 30rpx;
+}

@@ -1,0 +1,66 @@
+<!--pages/rule/rule.wxml-->
+<!-- <image src='{{ruleSrc1}}' mode='widthFix' class='img'> </image> -->
+<view class='wrap'>
+  <view class='title'>
+    <view class='line'></view>
+    活动规则
+  </view>
+  <view class='text'>
+    1. 每日支付1元参与早起打卡，放入早起打卡挑战金 奖池
+  </view>
+  <view class='text'>2. 次日早晨 5:00-8:00 成为早起打卡时间，成功打 卡，即可随机瓜分挑战金奖池，最低1元，不设上限
+  </view>
+  <view class='text'>3. 未在次日早晨 5:00-8:00 内进行打卡(例如：已过 打卡时间），视为打卡失败，不可参与当日挑战金的 瓜分
+  </view>
+  <view class='text'>4. 每日瓜分金额于早晨 8:00 后结算，当日 12:00 前以服务通知-红包的形式发放
+  </view>
+
+  <view class='title'>
+    <view class='line'></view>
+    客服联系
+  </view>
+  <view class='text'>客服工作时间：每周一至周五 10:00-18:00</view>
+
+  <view class='title'>
+    <image src='{{serviceIcon}}' mode='aspectFit' class='icon-img'></image>
+    <!-- <contact-button> 联系客服</contact-button> -->
+    <button class='ctitle' open-type="contact">联系客服</button>
+  </view>
+  <view class='title'>
+    <view class='line'></view>
+    参与方式：
+  </view>
+  <image mode='widthFix' src='{{process}}' class='img'></image>
+
+  <view class='title'>
+    <view class='line'></view>
+    特殊情况说明
+  </view>
+  <view class='text'>1. 每日 23:50-24:00 为系统结算时间，不可进行
+【参与挑战】操作</view>
+  <view class='text'>2. 若当日所有人成功打卡，退款1元至所有用户</view>
+  <view class='text'>
+  <view class='mb36'>
+  3. 活动日期的切换以当日 24:00 为界限，此时间点
+后参与活动，打卡时间为次日 5:00-8:00，如：
+</view>
+<view class='mb36'>用户 赵伟廷 于1月1日 23:00 参与活动，其有效打
+卡时间为1月2日 5:00-8:00;</view>
+<view class='mb36'>
+用户 陆晗 于1月2日 01:00 参与活动，其有效打卡
+时间为1月3日 5:00-8:00;
+</view>
+</view>
+  <view class='text'>
+  <view class='mb36'>4. 由于当前微信服务消息-红包发放规则限制，发
+放奖励金若于24小时内未进行领取，将导致红包失
+效，无法领取，敬请留意服务消息提示
+</view>
+如遇异常情况，无法正常参与活动或进行打卡，请
+先尝试下拉刷新页面，或删除本小程序并通过搜索
+重新进入。若有问题仍无法解决,请于下方联系客服
+，描述异常情况，我们的运营客服将在工作时段内
+第一时间为您解答
+
+</view>
+</view>

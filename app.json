@@ -1,0 +1,26 @@
+{
+  "pages":[
+    "pages/menu/menu",
+    "pages/group-sign/index/index",
+    "pages/group-sign/add-active/active",
+    "pages/group-sign/messages/mes",
+    "pages/group-sign/edit-active/editMes",
+    "pages/group-sign/news/news",
+    "pages/group-sign/active-show/active-show",
+    "pages/early-sign/index/index",
+    "pages/logs/logs",
+    "pages/early-sign/my-mark/my-mark",
+    "pages/early-sign/rule/rule",
+    "pages/early-sign/pay-success/pay-success",
+    "pages/early-sign/logs/logs",
+    "pages/mobile-recharge/cost/cost",
+    "pages/mobile-recharge/record/record",
+    "pages/mobile-recharge/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "群组工具",
+    "navigationBarTextStyle":"black"
+  }
+}
