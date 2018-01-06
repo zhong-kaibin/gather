@@ -1,7 +1,50 @@
 <!--pages/menu/menu.wxml-->
-<view class='container'>
+  <!-- <view class='container'>
 <view class='img-wrap'>
     <image wx:for="{{arrs}}" wx:key="arrs"  src='{{item.image}}' class='img' bindtap="toearlySign" data-url="{{item.data.path}}
     data-obj="{{item.data}}" data-type="{{item.type}}"></image>
 </view>
+</view>   -->
+<!-- new -->
+  <view class='header'>
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}" class='swiper'>
+  <block wx:for="{{imgUrls}}" wx:key="{{imgUrls}}" >
+    <swiper-item>
+      <image src="{{item}}"  mode='scaleToFill' class="slide-image" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper> 
+</view> 
+<view class='bg-white'>
+<view class='title'>群组应用 </view> 
+<view class='use-wrap'>
+  <view class='use-item' wx:for="{{useImgs}}" wx:key="{{useImgs}}">
+  <image src='{{item}}' class='item-img'></image>
+  <text class='use-txt'>群活动</text>
+  </view>
+</view> 
 </view>
+<view class='active-wrap bg-white'>
+<view class='title'>活动事项 </view> 
+<view class='active-item'>
+  <view class='a-item-l'>
+    <view class='a-item-title a-item-ltitle'>周二羽毛球活动羽毛球活动羽毛</view>
+    <view class='a-item-txt'>开始时间：2017/12/12 19:30</view>  
+  </view>
+  <view class='a-item-r'>
+    <view class='a-item-title'><text class='txt-red'>34444</text>人已参与</view>
+    <view class='a-item-txt txt-r'>来自群活动 </view>
+  </view>
+</view>
+<view class='active-item'>
+  <view class='a-item-l'>
+    <view class='a-item-title a-item-ltitle'>周二羽毛球活动羽毛球活动羽毛球活动羽毛球活动羽毛球活动</view>
+    <view class='a-item-txt'>开始时间：2017/12/12 19:30</view>  
+  </view>
+  <view class='a-item-r'>
+    <view class='a-item-title'><text class='txt-red'>344444</text>人已参与</view>
+    <view class='a-item-txt txt-r'>来自群活动 </view>
+  </view>
+</view>
+</view> 

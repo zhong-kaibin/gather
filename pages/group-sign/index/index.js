@@ -60,7 +60,8 @@ Page({
     }
     var self = this;
     wx.request({
-      url: getApp().data.url + "/sign_up/index_list" + urlObj.url.params,
+      // url: getApp().data.url + "/sign_up/index_list" + urlObj.url.params,
+      url: urlObj.getUrl("/sign_up/index_list"),
       method: "GET",
       header: {
         'content-type': 'application/json',
@@ -106,7 +107,8 @@ Page({
     })
     //请求活动详情
     wx.request({
-      url: getApp().data.url + "/sign_up/detail" + urlObj.url.params + "&su_id=" + su_id,
+      // url: getApp().data.url + "/sign_up/detail" + urlObj.url.params + "&su_id=" + su_id,
+      url: urlObj.getUrl("/sign_up/detail") + "&su_id=" + su_id,
       method: "GET",
       header: {
         'content-type': 'application/json',

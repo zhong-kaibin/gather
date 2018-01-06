@@ -26,7 +26,8 @@ App({
                 //发起网络请求
                 wx.request({
                   // url: 'https://devapi.bjpio.com/user/login',
-                  url: self.data.url + '/user/login' + urlObj.url.params,
+                  // url: self.data.url + '/user/login' + urlObj.url.params,
+                  url: urlObj.getUrl('/user/login'),
                   method: "POST",
                   header: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -82,7 +83,8 @@ App({
               //发起网络请求
               wx.request({
                 // url: 'https://devapi.bjpio.com/user/login',
-                url: self.data.url + '/user/login' + urlObj.url.params,
+                // url: self.data.url + '/user/login' + urlObj.url.params,
+                url: urlObj.getUrl('/user/login'),
                 method: "POST",
                 header: {
                   "Content-Type": "application/x-www-form-urlencoded"
@@ -158,7 +160,8 @@ App({
     //发送模板消息
     this.getToken(function(token){
       wx.request({
-        url: getApp().data.url + "/other/collect_form_id" + urlObj.url.params,
+        // url: getApp().data.url + "/other/collect_form_id" + urlObj.url.params,
+        url: urlObj.getUrl('/other/collect_form_id'),
         method: "GET",
         header: {
           'content-type': 'application/json',

@@ -178,10 +178,12 @@
 }
 .star-item{
   display: flex;
-  justify-content: space-between;
+    justify-content: space-between;  
+   /* justify-content: space-around;  */
   padding:0 60rpx;
   margin-top: 40rpx;
   margin-bottom: 60rpx;
+  flex-direction: row;
 }
 .star-wrap{
   margin-top: -20rpx;
@@ -191,11 +193,17 @@
   display: flex;
   text-align: center;
   flex-direction: column;
+  /* flex-grow:1; */
+  flex-shrink:0;  
 }
 .star-id{
   font-size: 26rpx;
   color: #333333;
   margin: 10rpx 0;
+  width: 150rpx;
+  height: 32rpx;
+  overflow:hidden; 
+  text-overflow:ellipsis;
 }
 .star-time{
   font-size: 26rpx;
@@ -327,4 +335,18 @@
 .popMsg-time{
   text-align: center;
   margin-top: 20rpx;
+}
+.keep-sign{
+  background:#fdb946;
+  color:#ffffff;
+  border: none;
+  border-radius: 5rpx;
+  height: 100%;
+  line-height:110rpx;
+  font-size:33rpx;
+
+}
+.keep-sign::after{
+  border: none;
+  border-radius: 5rpx
 }

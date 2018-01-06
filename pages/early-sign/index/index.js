@@ -36,7 +36,7 @@ Page({
     seconds: 0,
     motto: 'Hello World',
     userInfo: {},
-    haveSHOW:true,
+    haveSHOW: true,
     today: "../resource/images/today.png",
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -57,9 +57,9 @@ Page({
     var leftTimeShow;
     var timeId = setInterval(function () {
       leftTimeShow = utils.leftTimeShow(self.data.remainSeconds);
-      if (self.data.remainSeconds <= 0) {        
+      if (self.data.remainSeconds <= 0) {
         self.setData({
-          remainSeconds:0
+          remainSeconds: 0
         })
         clearInterval(timeId);
       }
@@ -72,7 +72,7 @@ Page({
         remainSeconds: self.data.remainSeconds - 1
         // timeStatus: utils.leftTimer(endTimeSencond, endTimeSencond2).status,
       });
-      
+
     }, 1000);
     self.setData({
       timeId: timeId
@@ -105,34 +105,34 @@ Page({
             is_fail_yesterday: res.data.data.is_fail_yesterday
           });
           //判断今日战况是否存在
-          if (JSON.stringify(self.data.today_datas)=="{}"){
+          if (JSON.stringify(self.data.today_datas) == "{}") {
             self.setData({
-              markShow:false
+              markShow: false
             })
-          }else{
+          } else {
             self.setData({
               markShow: true
             })
           }
           //是否打卡失败
-          if (self.data.is_fail_yesterday==1){
+          if (self.data.is_fail_yesterday == 1) {
             self.setData({
-              failPop:true
+              failPop: true
             })
             wx.getStorage({
               key: 'Popdate',
-              success: function(res) {
+              success: function (res) {
                 // console.log(res,"缓存")
-               var nowDate =  new Date().getDate();
-               if (res.data == nowDate){
-                 self.setData({
-                   haveSHOW:true//已经弹窗过
-                 })
-               }else{
-                 self.setData({
-                   haveSHOW: false
-                 })
-               }
+                var nowDate = new Date().getDate();
+                if (res.data == nowDate) {
+                  self.setData({
+                    haveSHOW: true//已经弹窗过
+                  })
+                } else {
+                  self.setData({
+                    haveSHOW: false
+                  })
+                }
               },
             })
           }
@@ -144,7 +144,7 @@ Page({
         }
       })
     });
-    
+
   },
   onShow: function () {
     var self = this;
@@ -180,15 +180,13 @@ Page({
   },
   close: function () {
     this.setData({
-      // popStatus:false
-      // payStatus: false
-      failPop:false
+      failPop: false
     })
     wx.setStorage({
       key: "Popdate",
       data: new Date().getDate()
     })
-    
+
   },
   toPay: function () {
     var self = this;
@@ -251,7 +249,7 @@ Page({
       })
     }
   },
-  formSubmit(e){
+  formSubmit(e) {
     var formId = e.detail.formId;
     var self = this;
     var curSecond = Date.parse(new Date());
@@ -325,8 +323,80 @@ Page({
 
     }, 2000)
   },
+  formSubmit1(e) {//关闭弹窗后的支付
+    var formId = e.detail.formId;
+    var opration = e.detail.target.dataset.opration;
+    var self = this;
+    console.log("弹窗",formId)
+    if (opration=="ok"){
+      self.setData({
+        signStatus: false//关闭弹窗
+      })
+    } else if (opration == "fail"){
+      self.setData({
+        failPop: false
+      })
+      wx.setStorage({
+        key: "Popdate",
+        data: new Date().getDate()
+      })
+    }
+      
+    app.getToken(function (token) {
+      wx.request({
+        url: urlObj.url.httpSrc + "/recharge/pre_order/wxpay_getup" + urlObj.url.params,
+        method: "POST",
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          'Authorization': 'AppletToken ' + token
+        },
+        data: {
+          money: 100
+        },
+        dataType: "json",
+        success: function (res) {
+          if (res.data.code == 0) {
+            // var pay_info = JSON.parse(res.data.data);
+            var pay_info = res.data.data;
+            wx.requestPayment({
+              'timeStamp': pay_info.timeStamp,
+              'nonceStr': pay_info.nonceStr,
+              'package': pay_info.package,
+              'signType': pay_info.signType,
+              'paySign': pay_info.paySign,
+              'success': function (res) {
+                console.log(res)
+                getApp().sendModel(formId)
+                wx.showToast({
+                  title: '充值成功',
+                })
+                self.onShow()
+                self.setData({
+                  payStatus: true
+                })
+
+              },
+              'fail': function (res) {
+                wx.showToast({
+                  title: '支付失败',
+                })
+              }
+            })
+          } else {
+            wx.showToast({
+              title: '请求失败',
+            })
+          }
+        },
+        fail: function () {
+
+        }
+      })
+    })
+
+  },
   toSign: function () {
-    var self=this;
+    var self = this;
     app.getToken(function (token) {
       wx.request({
         url: urlObj.url.httpSrc + "/activity/get_up/sign" + urlObj.url.params,
@@ -338,12 +408,20 @@ Page({
         data: {},
         dataType: "json",
         success: function (res) {
-          if(res.data.code==0){
+          if (res.data.code == 0) {
             self.setData({
-              signStatus: true
+              signStatus: true,
+              // signSuccess:tru
             })
-            self.onShow()
-          }else{
+
+            wx.showToast({
+              title: '打卡成功',
+              success: function () {
+                self.onShow()
+              }
+            })
+
+          } else {
             // wx.showToast({
             //   title: '打卡时间错误',
             // })
@@ -352,7 +430,7 @@ Page({
         }
       })
     });
-    
+
 
   },
   endChargeTime: function () {
@@ -379,4 +457,9 @@ Page({
     this.getJson();
     wx.stopPullDownRefresh()
   },
+  changeSign: function () {
+    this.setData({
+      signStatus: false
+    })
+  }
 })

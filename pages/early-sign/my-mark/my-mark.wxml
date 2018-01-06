@@ -30,7 +30,8 @@
   </view>
   <view wx:for="{{arrs}}" class="list-item  {{item.exec_type==0?'sign-statused':''}}" wx:key="arr">
     <text class='time'>{{item.date}}<text class='sign-status'>{{item.desc}}</text></text>
-    <text wx:if="{{item.money==-1?false:true}}" class="{{item.exec_type==1?'org-font':''}}">{{item.money}}</text>
+    <text wx:if="{{item.exec_type==1?true:false}}" class="{{item.exec_type==1?'org-font':''}}">+{{item.money}}</text>
+    <text wx:if="{{item.exec_type==2?true:false}}" class="{{item.exec_type==1?'org-font':''}}">-1.00</text>
   </view>
   </view>
   

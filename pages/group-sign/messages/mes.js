@@ -36,7 +36,8 @@ Page({
     var su_id = this.data.su_id;
     getApp().getToken(function (token) {
       wx.request({
-        url: getApp().data.url + "/sign_up/detail"+ urlObj.url.params+"&su_id=" + su_id,
+        // url: getApp().data.url + "/sign_up/detail"+ urlObj.url.params+"&su_id=" + su_id,
+        url: urlObj.getUrl("/sign_up/detail")+"&su_id=" + su_id,
         method: "GET",
         header:{
           'content-type': 'application/json',
@@ -67,11 +68,12 @@ Page({
       })
 
       wx.request({
-        url: getApp().data.url + "/sign_up/join_list" + urlObj.url.params +"&su_id=" + su_id ,
+        // url: getApp().data.url + "/sign_up/join_list" + urlObj.url.params +"&su_id=" + su_id ,
+        url: urlObj.getUrl("/sign_up/join_list") +"&su_id=" + su_id ,
         method: "GET",
         header: {
           "Content-Type": "application/x-www-form-urlencoded",
-          'Authorization': 'AppletToken' + getApp().token
+          'Authorization': 'AppletToken ' + getApp().token
         },
         success: function (res) {
           if (res.data.code == 0){
@@ -176,7 +178,8 @@ Page({
         //不用填信息直接报名
         getApp().getToken(function (token) {
           wx.request({
-            url: getApp().data.url + "/sign_up/sign_up" + urlObj.url.params,
+            // url: getApp().data.url + "/sign_up/sign_up" + urlObj.url.params,
+            url: urlObj.getUrl("/sign_up/sign_up"),
             method: "POST",
             header: {
               "Content-Type": "application/x-www-form-urlencoded",

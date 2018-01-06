@@ -7,7 +7,34 @@ Page({
    */
   data: {
     // imgSrcs: ["../../resource/images/early.jpg", "../../resource/images/话费砍价.jpg","../../resource/images/群约.jpg"],
-    imgSrc: "../../resource/images/early.jpg"
+    imgSrc: "../../resource/images/early.jpg",
+    useImgs: ["../../resource/images/early.jpg", "../../resource/images/early.jpg", "../../resource/images/early.jpg", "../../resource/images/early.jpg", "../../resource/images/early.jpg", "../../resource/images/early.jpg"],
+    imgUrls: ["../../resource/images/early.jpg", "../../resource/images/early.jpg"],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 3000,
+    duration: 500,
+    circular:true
+  },
+  changeIndicatorDots: function (e) {
+    this.setData({
+      indicatorDots: !this.data.indicatorDots
+    })
+  },
+  changeAutoplay: function (e) {
+    this.setData({
+      autoplay: !this.data.autoplay
+    })
+  },
+  intervalChange: function (e) {
+    this.setData({
+      interval: e.detail.value
+    })
+  },
+  durationChange: function (e) {
+    this.setData({
+      duration: e.detail.value
+    })
   },
 
   /**
@@ -17,7 +44,7 @@ Page({
       var self = this;
       //getApp().getToken1()
       wx.request({
-        url: urlObj.url.httpSrc + "/other/index" + urlObj.url.params,
+        url: urlObj.getUrl("/other/index"),
         method:"GET",
         header:{
           "content-type":"application/json",
@@ -28,7 +55,8 @@ Page({
         success:function(res){
           if(res.data.code==0)         
           // res.data.data[0].data.path = '../group-sign/index/index';
-          // res.data.data[1].data.path = '../early-sign/index/index';          
+          // res.data.data[1].data.path = '../early-sign/index/index'; 
+                
           self.setData({
             arrs:res.data.data
           })

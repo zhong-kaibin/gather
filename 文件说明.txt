@@ -1,2 +1,1 @@
-群组工具的域名放在app.js中的data数据里面
-其他的放在utils下面的url.js中
+﻿

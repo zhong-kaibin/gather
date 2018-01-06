@@ -54,7 +54,8 @@ Page({
         su_id: options.su_id
       });
       wx.request({
-        url: getApp().data.url + "/sign_up/detail" + urlObj.url.params +"&su_id=" + options.su_id ,
+        // url: getApp().data.url + "/sign_up/detail" + urlObj.url.params +"&su_id=" + options.su_id ,
+        url: urlObj.getUrl("/sign_up/detail") +"&su_id=" + options.su_id ,
         method: "GET",
         header: {
           'content-type': 'application/json',
@@ -335,7 +336,8 @@ Page({
       }     
       //发送数据给后台 
       wx.request({
-        url: getApp().data.url + '/sign_up/create' + urlObj.url.params,
+        // url: getApp().data.url + '/sign_up/create' + urlObj.url.params,
+        url: urlObj.getUrl('/sign_up/create'),
         method: "POST",
         header: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -414,7 +416,7 @@ Page({
       }
       //保存修改
       wx.request({
-        url: getApp().data.url + '/sign_up/modify' + urlObj.url.params,
+        url: urlObj.getUrl('/sign_up/modify'),
         method: "POST",
         header: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -557,7 +559,8 @@ Page({
   formOver:function(){//结束报名
     var self =this;
     wx.request({
-      url: getApp().data.url + '/sign_up/stop' + urlObj.url.params,
+      // url: getApp().data.url + '/sign_up/stop' + urlObj.url.params,
+      url: urlObj.getUrl('/sign_up/stop'),
       method: "POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -586,7 +589,8 @@ Page({
   formDel:function(){//删除活动
     var self = this;
     wx.request({
-      url: getApp().data.url + '/sign_up/delete' + urlObj.url.params,
+      // url: getApp().data.url + '/sign_up/delete' + urlObj.url.params,
+      url: urlObj.getUrl('/sign_up/delete'),
       method: "POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded",

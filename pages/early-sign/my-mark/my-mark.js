@@ -66,7 +66,7 @@ Page({
           self.setData({
             income: (res.data.data.income /100).toFixed(2),
             recharge: (res.data.data.recharge/100).toFixed(2),
-            sign_times: res.data.data.sign_times.toFixed(2)
+            sign_times: res.data.data.sign_times
           })
         }
       })
@@ -93,6 +93,11 @@ Page({
           if (res.data.code == 0) {
             // wx.hideLoading();
             if (res.data.data.length > 0) {
+              for (var i = 0; i < res.data.data.length;i++){
+                if (res.data.data[i].exec_type==1){
+                  res.data.data[i].money = (res.data.data[i].money/100).toFixed(2)
+                }               
+              }
               self.setData({
                 arrs: self.data.arrs.concat(res.data.data),
                 hasMoreData: true,

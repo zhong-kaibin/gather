@@ -43,27 +43,27 @@
       <view class='star-item'>
         <view class='star-s-item'>
           <image mode='scaleToFill' src='{{today_datas.top.first.avatar}}' class='head-img'></image>
-          <view class='star-wrap'>
+           <view class='star-wrap'>
             <view class='rank-btn bg-org'>早起之星</view>
-            <view class='star-id'>id{{today_datas.top.first.user_id}}</view>
+            <view class='star-id'>{{today_datas.top.first.nickname}}</view>
             <view class='star-time org-font'>{{today_datas.top.first.sign_datetime}}打卡</view>
-          </view>
+          </view> 
         </view>
         <view class='star-s-item'>
           <image mode='scaleToFill' src='{{today_datas.top.luck.avatar}}' class='head-img'></image>
-          <view class='star-wrap'>
+           <view class='star-wrap'>
             <view class='rank-btn red-bg'>手气之星</view>
-            <view class='star-id'>id{{today_datas.top.luck.user_id}}</view>
-            <view class='star-time org-font'>{{today_datas.top.luck.money}}元</view>
-          </view>
+            <view class='star-id'>{{today_datas.top.luck.nickname}}</view>
+            <view class='star-time org-font'>{{today_datas.top.luck.money/100}}元</view>
+          </view> 
         </view>
         <view class='star-s-item'>
           <image mode='scaleToFill' src='{{today_datas.top.times.avatar}}' class='head-img'></image>
-          <view class='star-wrap'>
+            <view class='star-wrap'>
             <view class='rank-btn green-bg'>毅力之星</view>
-            <view class='star-id'>id{{today_datas.top.times.user_id}}</view>
+             <view class='star-id'>{{today_datas.top.times.nickname}}</view> 
             <view class='star-time org-font'>连续{{today_datas.top.times.times}}次</view>
-          </view>
+          </view>  
         </view>
 
       </view>
@@ -82,10 +82,31 @@
     <text class='pop-content'>起得早的人一共瓜分了<text class='org-font'>{{money}}</text>元\n不要放弃,再挑战一次
     </text>
   </view>
-  <view class='moto' bindtap='close'>
-    不甘心,我要早起！
+  <form bindsubmit="formSubmit1" report-submit="true">
+  <view class='moto'>
+  <button formType="submit" class='keep-sign' data-opration="fail">不甘心,我要早起！</button>  
   </view>
+  </form>
   <image class='close' src='{{closeSrc}}' bindtap='close'></image>
+</view>   
+<!-- 打卡成功提示 -->
+<view class='mask' wx:if="{{signStatus}}"></view>
+<view class='pop' wx:if="{{signStatus}}">
+  <view class='pop-img-wrap'>
+    <image class='pop-img' mode='scaleToFill' src='{{popSrc}}'></image>
+  </view>
+  <view class='pop-status'>打卡成功！</view>
+  <view class='pop-time'>打卡时间5:00-8:00 </view>
+  <view class='pop-content-wrap'>
+    <text class='pop-content'>还是那份在清晨出现的好运气\n8: 30分后可在 <text class='org-font'>我的战绩</text>页查看
+    </text>
+  </view>
+  <form bindsubmit="formSubmit1" report-submit="true">
+  <view class='moto'>
+  <button formType="submit" class='keep-sign' data-opration="ok">继续坚持每一天！</button>
+  </view>
+  </form>
+  <image class='close' src='{{closeSrc}}' bindtap='changeSign'></image>
 </view>   
 <!-- 提示信息 -->
 <view class='popMsg' wx:if="{{popMsgStatus}}">

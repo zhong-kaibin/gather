@@ -31,7 +31,8 @@ Page({
     getApp().getToken(function (token) {
       console.log(self.data.su_id,"这是id值 " )
       wx.request({
-        url: getApp().data.url + "/sign_up/detail" + urlObj.url.params + "&su_id=" + self.data.su_id ,
+        // url: getApp().data.url + "/sign_up/detail" + urlObj.url.params + "&su_id=" + self.data.su_id ,
+        url: urlObj.getUrl("/sign_up/detail")+ "&su_id=" + self.data.su_id ,
         method: "GET",
         header: {
           'content-type': 'application/json',
@@ -172,7 +173,8 @@ Page({
       //填完信息后报名
       getApp().getToken(function (token) {
         wx.request({
-          url: getApp().data.url + "/sign_up/sign_up" + urlObj.url.params,
+          // url: getApp().data.url + "/sign_up/sign_up" + urlObj.url.params,
+          url: urlObj.getUrl("/sign_up/sign_up"),
           method: "POST",
           header: {
             "Content-Type": "application/x-www-form-urlencoded",
